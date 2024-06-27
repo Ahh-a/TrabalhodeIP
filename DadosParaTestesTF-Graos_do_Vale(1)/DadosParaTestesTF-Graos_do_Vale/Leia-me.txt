@@ -1,0 +1,27 @@
+Trabalho Prático
+Orientações sobre os arquivos de dados para testes
+-------------------------------------------------------------
+
+Processe os 8 arquivos de dados correspondentes às Cargas, 
+na ordem de sua numeração, informando datas distintas (de 
+meses distintos), de forma a simular uma linha de tempo. 
+Sugestão: Distribua o processamento dos arquivos por 3 meses 
+          diferentes, para viabilizar a percepção das 
+          funcionalidades do Relatório B.
+
+Se desejar, use esses arquivos como modelos para criar mais 
+arquivos de dados de Cargas.
+
+O arquivo "GraosRecebidos-2024(Simulado).dat" é um "Banco 
+de Dados" predefinido e simulado com o processamento de 6 
+cargas hipotéticas para viabilizar os testes das funções de 
+Relatórios B e C, antes mesmo que as funções de processamento 
+de cargas estejam programadas e prontas para gerar o banco 
+de dados.  O conteúdo desse arquivo está "listado" (forma de 
+texto) no arquivo "Convertido(imagemBD).txt".
+
+Obs.: Todos os arquivos de Cargas e o Banco de Dados simulado 
+      seguem as especificações descritas no enunciado do 
+      Trabalho.
+
+-------------------------------------------------------------
