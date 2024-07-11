@@ -1,5 +1,38 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+//Essa estrutura vai armazenar os dados dos carregamentos
+typedef struct 
+{
+    int origem;
+    int protocolo;
+    float pesoBruto;
+    int amostras;
+    int tipoProduto;
+    float *pesosAmostras;
+    float *pesosImpurezas;
+    float *umidade;
+} Carregamento;
+
+void carregamento(char *nomeArquivo) 
+{
+  //Funções ainda a serem desenvolvidas
+    Carregamento carregamento;
+    float pic, guc;
+    char dataDeRecebimento[11];
+
+    carregamento = lerArquivo(nomeArquivo); //Criar a função para ler os arquivos!
+    armazenarDataRecebimento(dataDeRecebimento);
+    realizarCalculos(carregamento, &pic, &guc) // Essa função a ser criada deve chamar as funções de cálculo
+    armazenarNoBancoDados(carregamento, pic, guc, dataDeRecebimento);
+    imprimirRelatorio(carregamento, pic, guc, dataDeRecebimento);
+    free(carregamento.pesosAmostras);
+    free(carregamento.pesosImpurezas);
+    free(carregamento.umidade);
+}
+
 
 //----------FUNCOES DE CALCULO----------
 
