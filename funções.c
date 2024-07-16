@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
 double calcular_pic(int n, double p[], double q[]) {
     double soma_q = 0, soma_p = 0;
@@ -31,32 +34,14 @@ double calcularGuc(double *p, double *q, double *u, int n){
     return guc;
 }
 
-void cabeçalho_comun_relatório_mensal()
+void cabecalho_comum(char[] funcaoNome)
 {
-  printf("\nUFG-BSI-IP (COOPERATIVA AGRÍCOLA GRÃO_DO_VALE V1.0)"
-         "\nANO: 2024 <relatório mensal>"
-         "\n----------------------------------------------------------------------------------------------------------------------------------- \n");
-
-}
-
-void cabeçalho_comun_recpção_carregamento()
-{
-  printf("\nUFG-BSI-IP (COOPERATIVA AGRÍCOLA GRÃO_DO_VALE V1.0)"
-         "\nANO: 2024 <recepção de carregamento>"
-         "\n----------------------------------------------------------------------------------------------------------------------------------- \n");
-
-}
-
-void cabeçalho_comun_relatório_estatísticas()
-{
-  printf("\nUFG-BSI-IP (COOPERATIVA AGRÍCOLA GRÃO_DO_VALE V1.0)"
-         "\nANO: 2024 <relatório estatísticas>"
-         "\n----------------------------------------------------------------------------------------------------------------------------------- \n");
-
+  printf("\nUFG-BSI-IP (COOPERATIVA AGRÍCOLA GRÃO_DO_VALE V1.0)");
+  printf("\nANO: 2024 <%s>", funcaoNome);
+  printf("\n----------------------------------------------------------------------------------------------------------------------------------- \n");
 }
 
 void rodape_comum() {
-
     printf("---------------------------------------------------------------------------------------------------------------------------------- \n");
     printf("Programa desenvolvido pelos alunos. \n");
     printf("-Vitor Vitorette Serafim de Pina; \n");
@@ -128,45 +113,43 @@ void menu()
   do
   {
     scanf("%d", &codigo);
-  switch (codigo)
-  {
-  case 1:  //Recepção de carregamento
+    switch (codigo)
+    {
+      case 1:  //Recepção de carregamento
+        char[] carregamento = "Função Carregamento";
+        cabecalho_comum(carregamento);
+        Descricao_de_Carregamento();
+        rodape_comum();
+        interface();
+        break;
+      case 2:  //Gerar relatório mensal
+        char[] relatorio = "RelatorioMensal";
+        cabecalho_comum(relatorio);
+        int mes;
+        char dados[6][15];
+        printf("\ndigite o mes: ");
+        scanf("%d", &mes);
+        print_relatorio_mensal(mes,15 ,dados[6][10]); //valores de rascunho
+        rodape_comum();
+        interface();
 
-    cabeçalho_comun_recpção_carregamento();
-    Descricao_de_Carregamento();
-    rodape_comum();
-    interface();
+        break;
+      case 3: //Gerar relatório estatísticas
+        char[] relatorioDeEstatisticas = "Relatório de Estatísticas";
+        cabecalho_comum(relatorioDeEstatisticas);
+        rodape_comum();
+        interface();
+        break;
+      case 4: //Sair
 
-    break;
-  case 2:  //Gerar relatório mensal
+        printf("\nFinalizando o programa...\n\n");
 
-    cabeçalho_comun_relatório_mensal();
-    int mes;
-    char dados[6][15];
-    printf("\ndigite o mes: ");
-    scanf("%d", &mes);
-    print_relatorio_mensal(mes,15 ,dados[6][10]); //valores de rascunho
-    rodape_comum();
-    interface();
+        break;
+      default:
 
-    break;
-  case 3: //Gerar relatório estatísticas
+        printf("\nCódigo não encontrado...\n");
 
-    cabeçalho_comun_relatório_estatísticas();
-    rodape_comum();
-    interface();
-
-    break;
-  case 4: //Sair
-
-    printf("\nfinalizando o programa...\n\n");
-
-    break;
-  default:
-
-    printf("\nCódigo não encontrado...\n");
-
-    break;
-  }
+        break;
+    }
   } while ( codigo != 4);
 }
